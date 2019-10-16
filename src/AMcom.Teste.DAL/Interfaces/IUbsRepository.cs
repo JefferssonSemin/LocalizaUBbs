@@ -6,6 +6,6 @@ namespace AMcom.Teste.Dal.Interfaces
 {
     public interface IUbsRepository 
     {
-        List<Ubs> BuscarUbs(double latitude, double longitude);
+        List<Ubs> BuscarUbsProximas(double latitude, double longitude);
     }
 }

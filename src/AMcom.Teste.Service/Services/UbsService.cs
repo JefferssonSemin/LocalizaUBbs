@@ -20,11 +20,11 @@ namespace AMcom.Teste.Service.Services
         // ser passados como parâmetro para o método e retorne uma lista/coleção de objetos do tipo UbsDTO.
         // Esta lista deve estar ordenada pela avaliação (da melhor para a pior) de acordo com os dados que constam
         // no objeto retornado pela camada de acesso a dados (DAL).
-        public List<UbsDTO> UbsProximas(double longitude, double latitude)
+        public List<UbsDTO> BucarUbsProximas(double longitude, double latitude)
         {
             try
             {
-                return (List<UbsDTO>)_ubsRepository.BuscarUbs(longitude, latitude).Select(x => new UbsDTO
+               )_ubsRepository.BuscarUbsProximas().Select(x => new UbsDTO
                 {
                     Avaliacao = x.Nom_Estab,
                     Endereco = x.Dsc_Endereco,

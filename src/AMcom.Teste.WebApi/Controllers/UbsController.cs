@@ -16,8 +16,8 @@ namespace AMcom.Teste.WebApi.Controllers
             _ubsService = ubsService;
         }
 
-        [HttpGet]
-        public IActionResult ListaUbs() => Ok();
+        [HttpGet("/:{latitude}/:{longitude}")]
+        public IActionResult ListaUbs(double latitude, double longitude) => Ok(_ubsService.BucarUbsProximas(latitude, longitude));
 
 
         // Implemente um método que seja acessível por HTTP GET e retorne a lista das 5 UBSs

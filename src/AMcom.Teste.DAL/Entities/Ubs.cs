@@ -2,9 +2,9 @@
 {
     public class Ubs 
     {
-        public decimal Vlr_Latitude { get; set; }
+        public double Vlr_Latitude { get; set; }
 
-        public decimal Vlr_Longitude { get; set; }
+        public double Vlr_Longitude { get; set; }
 
         public string Nom_Estab { get; set; }
 
