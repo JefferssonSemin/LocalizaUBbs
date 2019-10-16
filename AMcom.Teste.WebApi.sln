@@ -8,17 +8,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9AB9AA44-4ECF-4354-8CCC-849020E869CD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{01A13A2D-EDEB-4654-9448-F993AB961424}"
-	ProjectSection(SolutionItems) = preProject
-		test\AMcom.Teste.Service.Tests\Class1.cs = test\AMcom.Teste.Service.Tests\Class1.cs
-	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMcom.Teste.Service", "src\AMcom.Teste.Service\AMcom.Teste.Service.csproj", "{560713A3-EDDE-4DF4-B16D-9BDC950FEB6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AMcom.Teste.Service", "src\AMcom.Teste.Service\AMcom.Teste.Service.csproj", "{560713A3-EDDE-4DF4-B16D-9BDC950FEB6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMcom.Teste.DAL", "src\AMcom.Teste.DAL\AMcom.Teste.DAL.csproj", "{18C546D3-937B-44E0-AD44-F0B032752D2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AMcom.Teste.DAL", "src\AMcom.Teste.DAL\AMcom.Teste.DAL.csproj", "{18C546D3-937B-44E0-AD44-F0B032752D2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMcom.Teste.Service.Tests", "test\AMcom.Teste.Service.Tests\AMcom.Teste.Service.Tests.csproj", "{44917C84-4DD1-4C94-8AF0-910E8FE0E10C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AMcom.Teste.Service.Tests", "test\AMcom.Teste.Service.Tests\AMcom.Teste.Service.Tests.csproj", "{44917C84-4DD1-4C94-8AF0-910E8FE0E10C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMcom.Teste.Ioc", "src\AMcom.Teste.Ioc\AMcom.Teste.Ioc.csproj", "{0F2B3649-1DAF-4886-8F71-32B1F490402F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AMcom.Teste.Ioc", "src\AMcom.Teste.Ioc\AMcom.Teste.Ioc.csproj", "{0F2B3649-1DAF-4886-8F71-32B1F490402F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
