@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using AMcom.Teste.Service.Dtos;
-using AMcom.Teste.Service.Interfaces;
+﻿using AMcom.Teste.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AMcom.Teste.WebApi.Controllers
@@ -8,7 +6,6 @@ namespace AMcom.Teste.WebApi.Controllers
     [Route("api/ubs")]
     public class UbsController : Controller
     {
-
         private readonly IUbsService _ubsService;
 
         public UbsController(IUbsService ubsService)
