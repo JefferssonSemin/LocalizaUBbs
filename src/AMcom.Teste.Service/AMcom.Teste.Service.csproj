@@ -12,4 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AMcom.Teste.DAL\AMcom.Teste.DAL.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="GeoCoordinate.NetCore" Version="1.0.0.1" />
+  </ItemGroup>
 </Project>

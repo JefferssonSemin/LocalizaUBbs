@@ -12,4 +12,9 @@
     <Folder Include="Repository\" />
     <Folder Include="Entities\" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="TinyCsvParser" Version="2.5.2" />
+    <PackageReference Include="GeoCoordinate" Version="2.0.1" />
+    <PackageReference Include="GeoCoordinate.NetCore" Version="1.0.0.1" />
+  </ItemGroup>
 </Project>
