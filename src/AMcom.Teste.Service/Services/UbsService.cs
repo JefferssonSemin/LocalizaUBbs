@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using AMcom.Teste.Dal.Interfaces;
-using AMcom.Teste.DAL;
+﻿using AMcom.Teste.Dal.Interfaces;
 using AMcom.Teste.Service.Dtos;
 using AMcom.Teste.Service.Interfaces;
 using GeoCoordinatePortable;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AMcom.Teste.Service.Services
 {
@@ -18,15 +16,26 @@ namespace AMcom.Teste.Service.Services
             _ubsRepository = ubsRepository;
         }
 
-        // Implemente um método que retorne as 5 UBSs mais próximas de um ponto (latitude e longitude) que devem 
-        // ser passados como parâmetro para o método e retorne uma lista/coleção de objetos do tipo UbsDTO.
-        // Esta lista deve estar ordenada pela avaliação (da melhor para a pior) de acordo com os dados que constam
-        // no objeto retornado pela camada de acesso a dados (DAL).
-        public List<Ubs> BucarUbsProximas(double longitude, double latitude)
+        /// <summary>
+        /// Lógica que busca do modelo carregado as ubs mais próxima a coordenada informada.
+        /// </summary>
+        /// <param name="longitude"></param>
+        /// <param name="latitude"></param>
+        /// <returns></returns>
+        public List<UbsDTO> BucarUbsProximas(double longitude, double latitude)
         {
-                //Busca os dados e converte no Dto
-                return _ubsRepository.BuscarUbsProximas(new GeoCoordinate(latitude, longitude));
-;          
+            var coord = new GeoCoordinate(longitude, latitude);
+
+            return _ubsRepository.CarregarDados().OrderBy(x =>
+                 new GeoCoordinate(FormataCoordenada(x.Longitude), FormataCoordenada(x.Latitude))
+                     .GetDistanceTo(coord)).Take(5).Select(a => (UbsDTO)a).ToList();
         }
+
+        /// <summary>
+        /// Formata string em double removendo caracteres.
+        /// </summary>
+        /// <param name="coordenada"></param>
+        /// <returns></returns>
+        private static double FormataCoordenada(string coordenada) => double.Parse(coordenada.Replace("-", "").Replace(".", ","));
     }
 }

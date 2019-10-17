@@ -5,7 +5,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 
-
 namespace AMcom.Teste.WebApi
 {
     public class Startup
@@ -27,8 +26,7 @@ namespace AMcom.Teste.WebApi
             {
                 s.SwaggerDoc("v1", new Info
                 {
-                   
-                    Title = "Teste AMCOM",
+                    Title = "ProdutoServicoApi",
                     Description = "Tela auxiliar para validar teste",
                 });
             });
@@ -49,8 +47,6 @@ namespace AMcom.Teste.WebApi
                 s.SwaggerEndpoint("/swagger/v1/swagger.json", "Teste AMCOM");
                 s.RoutePrefix = string.Empty;
             });
-
-
         }
     }
 }

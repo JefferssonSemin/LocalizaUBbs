@@ -1,6 +1,5 @@
-﻿using System;
-using AMcom.Teste.Dal.Interfaces;
-using AMcom.Teste.DAL;
+﻿using AMcom.Teste.Dal.Interfaces;
+using AMcom.Teste.DAL.Repository;
 using AMcom.Teste.Service.Interfaces;
 using AMcom.Teste.Service.Services;
 using Microsoft.Extensions.DependencyInjection;

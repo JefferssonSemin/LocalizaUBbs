@@ -1,15 +1,10 @@
-﻿using System;
+﻿using AMcom.Teste.DAL.Entities;
 using System.Collections.Generic;
-using AMcom.Teste.DAL;
-using GeoCoordinatePortable;
-using TinyCsvParser.Mapping;
 
 namespace AMcom.Teste.Dal.Interfaces
 {
-    public interface IUbsRepository 
+    public interface IUbsRepository
     {
-        List<Ubs> BuscarUbsProximas(GeoCoordinate geoCoordinate);
-
-        List<CsvMappingResult<Ubs>> CarregarDados();
+        List<Ubs> CarregarDados();
     }
 }

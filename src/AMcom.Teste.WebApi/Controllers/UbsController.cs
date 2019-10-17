@@ -16,7 +16,6 @@ namespace AMcom.Teste.WebApi.Controllers
         [HttpGet("/:{latitude}/:{longitude}")]
         public IActionResult ListaUbs(double latitude, double longitude) => Ok(_ubsService.BucarUbsProximas(latitude, longitude));
 
-
         // Implemente um método que seja acessível por HTTP GET e retorne a lista das 5 UBSs
         // (Unidades Básicas de Saúde) mas próximas de um ponto (latitude e longitude) e ordenada
         // por avaliação (da melhor para a pior). O retorno deve ser no formato JSON.
