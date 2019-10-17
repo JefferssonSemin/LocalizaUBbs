@@ -1,9 +1,13 @@
 ﻿using CsvHelper.Configuration.Attributes;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace AMcom.Teste.DAL.Entities
 {
+    /// <summary>
+    /// Entidade de Ubs com seu mapeamento/name legado.
+    /// </summary>
     public class Ubs
     {
         [Name("vlr_latitude")]
@@ -30,6 +34,9 @@ namespace AMcom.Teste.DAL.Entities
         public UbsAvaliacao AvalicaoUbs => UbsExtension.MontaEnum(EstruturaFisica);
     }
 
+    /// <summary>
+    /// Monta o enum conforme monta o objeto adicionado à coleção.
+    /// </summary>
     public static class UbsExtension
     {
         public static UbsAvaliacao MontaEnum(string avaliacao)
@@ -43,10 +50,18 @@ namespace AMcom.Teste.DAL.Entities
         }
     }
 
-    public enum UbsAvaliacao : int
+    /// <summary>
+    /// Enumerador da avaliação da estrutura.
+    /// </summary>
+    public enum UbsAvaliacao
     {
+        [Description("Ruim")]
         Ruim = 1,
+
+        [Description("Bom")]
         Bom = 2,
+
+        [Description("Excelente")]
         Excelente = 3
     }
 }

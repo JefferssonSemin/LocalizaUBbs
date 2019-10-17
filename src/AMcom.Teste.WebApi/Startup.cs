@@ -26,7 +26,7 @@ namespace AMcom.Teste.WebApi
             {
                 s.SwaggerDoc("v1", new Info
                 {
-                    Title = "ProdutoServicoApi",
+                    Title = "TesteAMcom",
                     Description = "Tela auxiliar para validar teste",
                 });
             });

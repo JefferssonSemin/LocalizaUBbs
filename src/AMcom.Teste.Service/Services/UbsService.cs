@@ -2,6 +2,7 @@
 using AMcom.Teste.Service.Dtos;
 using AMcom.Teste.Service.Interfaces;
 using GeoCoordinatePortable;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -22,13 +23,23 @@ namespace AMcom.Teste.Service.Services
         /// <param name="longitude"></param>
         /// <param name="latitude"></param>
         /// <returns></returns>
-        public List<UbsDTO> BucarUbsProximas(double longitude, double latitude)
+        public List<UbsDto> BucarUbsProximas(double longitude, double latitude)
         {
+            if (!(Math.Abs(longitude) > 0) || !(Math.Abs(latitude) > 0))
+                throw new Exception("Não é possivel buscar coordenadas com o valor 0");
+
             var coord = new GeoCoordinate(longitude, latitude);
 
-            return _ubsRepository.CarregarDados().OrderBy(x =>
-                 new GeoCoordinate(FormataCoordenada(x.Longitude), FormataCoordenada(x.Latitude))
-                     .GetDistanceTo(coord)).Take(5).Select(a => (UbsDTO)a).ToList();
+            try
+            {
+                return _ubsRepository.CarregarDados().OrderBy(x =>
+                    new GeoCoordinate(FormataCoordenada(x.Longitude), FormataCoordenada(x.Latitude))
+                        .GetDistanceTo(coord)).Take(5).OrderByDescending(x => x.AvalicaoUbs).Select(a => (UbsDto)a).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -36,6 +47,6 @@ namespace AMcom.Teste.Service.Services
         /// </summary>
         /// <param name="coordenada"></param>
         /// <returns></returns>
-        private static double FormataCoordenada(string coordenada) => double.Parse(coordenada.Replace("-", "").Replace(".", ","));
+        private static double FormataCoordenada(string coordenada) => double.Parse(coordenada?.Replace("-", "").Replace(".", ",") ?? throw new InvalidOperationException("Não há coordenadas disponíveis para serem formatadas."));
     }
 }

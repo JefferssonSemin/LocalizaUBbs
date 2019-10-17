@@ -5,6 +5,6 @@ namespace AMcom.Teste.Service.Interfaces
 {
     public interface IUbsService
     {
-        List<UbsDTO> BucarUbsProximas(double latitude, double longitude);
+        List<UbsDto> BucarUbsProximas(double latitude, double longitude);
     }
 }

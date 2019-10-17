@@ -2,13 +2,16 @@
 
 namespace AMcom.Teste.Service.Dtos
 {
-    public class UbsDTO
+    /// <summary>
+    /// Modelo de retorno, que carrega seu modelo no construtor definindo sua estutura no método explicit operator.
+    /// </summary>
+    public class UbsDto
     {
-        private UbsDTO(string nome, string endereco, UbsAvaliacao avalicaoUbs)
+        private UbsDto(string nome, string endereco, UbsAvaliacao avalicaoUbs)
         {
             Nome = nome;
             Endereco = endereco;
-            Avaliacao = avalicaoUbs.GetType().FullName;
+            Avaliacao = avalicaoUbs.ToString();
         }
 
         public string Nome { get; set; }
@@ -17,9 +20,9 @@ namespace AMcom.Teste.Service.Dtos
 
         public string Avaliacao { get; set; }
 
-        public static explicit operator UbsDTO(Ubs v)
+        public static explicit operator UbsDto(Ubs v)
         {
-            return new UbsDTO(v.Nome, v.Endereco, v.AvalicaoUbs);
+            return new UbsDto(v.Nome, v.Endereco, v.AvalicaoUbs);
         }
     }
 }
