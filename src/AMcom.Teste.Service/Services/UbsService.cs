@@ -25,8 +25,10 @@ namespace AMcom.Teste.Service.Services
         /// <returns></returns>
         public List<UbsDto> BucarUbsProximas(double longitude, double latitude)
         {
-            if (!(Math.Abs(longitude) > 0) || !(Math.Abs(latitude) > 0))
+            if (!ValidaCoordenadas(longitude, latitude))
+            {
                 throw new Exception("Não é possivel buscar coordenadas com o valor 0");
+            }
 
             if (latitude > 90 || latitude < -90 && longitude > 90 || longitude < -90)
                 throw new Exception("A latitude e longitude deve estar entre 90 e -90");
@@ -44,6 +46,11 @@ namespace AMcom.Teste.Service.Services
             {
                 throw new Exception($"Não foi possível efetuar a consulta, erro: {ex.Message}");
             }
+        }
+
+        public bool ValidaCoordenadas(double longitude, double latitude) {
+
+            return (!(Math.Abs(longitude) > 0) || !(Math.Abs(latitude) > 0));
         }
 
         /// <summary>

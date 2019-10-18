@@ -7,7 +7,7 @@ namespace AMcom.Teste.Service.Dtos
   /// </summary>
   public class UbsDto
   {
-    private UbsDto(string nome, string endereco, UbsAvaliacao avalicaoUbs)
+    public UbsDto(string nome, string endereco, UbsAvaliacao avalicaoUbs)
     {
       Nome = nome;
       Endereco = endereco;
