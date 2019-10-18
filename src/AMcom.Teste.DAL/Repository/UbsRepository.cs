@@ -11,7 +11,7 @@ namespace AMcom.Teste.DAL.Repository
 {
     public class UbsRepository : IUbsRepository
     {
-        private const string Caminho = @"C:\Users\69760\Desktop\LocalizaUBbs\ubs.csv";
+        private const string Caminho = @"C:\ubs.csv";
 
         /// <summary>
         /// Responsável pela leitura do csv e carregamento dos dados ao list.

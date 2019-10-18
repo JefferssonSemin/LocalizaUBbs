@@ -1,8 +1,15 @@
-﻿namespace AMcom.Teste.Service.Tests
+﻿
+namespace AMcom.Teste.Service.Tests
 {
-    public class UbsServiceTest
+  public class UbsServiceTest
+  {
+    [Theory(DisplayName = "Latitude e longitudae igual a deve gerar erro")]
+    [InlineData(0)]
+    public void UbsService_LongitudeLatitude0_DeveGerarErro(double latitude)
     {
-        // Implemente os testes unitários para o método criado no UbsService. Faça quantos testes achar
-        // pertinente para validar a sua lógica de aplicação.
+
+      Assert.(0, "a latitude está inválida");
     }
+
+  }
 }
