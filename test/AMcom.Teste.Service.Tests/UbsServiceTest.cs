@@ -10,7 +10,7 @@ namespace AMcom.Teste.Service.Tests
 {
     /// <summary>
     /// O projeto foi desenvolvido no windows for mac e infelizmente não foi possível 
-    /// executar os testes por conta de problemas na IDE, porém deixo a implementação e a ideia.
+    /// executar os testes por conta de problemas na IDE, porém deixo a implementação sem a veracidade de funcionamento.
     /// </summary>
     public class UbsServiceTest
     {
@@ -19,7 +19,8 @@ namespace AMcom.Teste.Service.Tests
         private const double LAT = 20.000;
 
         private IUbsService mock;
-
+        private UbsService ubsService;
+    
         [Fact]
         public void UbsService_RetornoUbs_DeveSerTrue()
         {
@@ -38,10 +39,10 @@ namespace AMcom.Teste.Service.Tests
         [InlineData(10.5487, 0)]
         public void UbsService_LatitudeLongitude0_GeraTrue(double latitude, double longitude)
         {
-            var mockService = Substitute.For<UbsService>();
-            var resultadoEsperado = mockService.ValidaCoordenadas(latitude, longitude);
+            ubsService = new UbsService();         
+            var resultadoEsperado = ubsService.ValidaCoordenadas(latitude, longitude);
 
-            var resultado = latitude.Equals(0) || latitude.Equals(0);
+            var resultado = latitude.Equals(0) || longitude.Equals(0);
 
             Assert.Equal(resultado, resultadoEsperado);
         }

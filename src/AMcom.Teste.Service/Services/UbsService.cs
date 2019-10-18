@@ -17,6 +17,10 @@ namespace AMcom.Teste.Service.Services
             _ubsRepository = ubsRepository;
         }
 
+        public UbsService()
+        {
+        }
+
         /// <summary>
         /// Lógica que busca do modelo carregado as ubs mais próxima a coordenada informada.
         /// </summary>
@@ -25,7 +29,7 @@ namespace AMcom.Teste.Service.Services
         /// <returns></returns>
         public List<UbsDto> BucarUbsProximas(double longitude, double latitude)
         {
-            if (!ValidaCoordenadas(longitude, latitude))
+            if (ValidaCoordenadas(longitude, latitude))
             {
                 throw new Exception("Não é possivel buscar coordenadas com o valor 0");
             }

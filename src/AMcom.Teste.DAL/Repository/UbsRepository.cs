@@ -12,7 +12,7 @@ namespace AMcom.Teste.DAL.Repository
 {
     public class UbsRepository : IUbsRepository
     {
-        private const string Caminho = @"C:\usbs.csv";
+        private const string Caminho = @"C:\ubs.csv";
         
         /// <summary>
         /// Responsável pela leitura do csv e carregamento dos dados ao list.
