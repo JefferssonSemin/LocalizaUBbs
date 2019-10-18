@@ -28,6 +28,10 @@ namespace AMcom.Teste.Service.Services
             if (!(Math.Abs(longitude) > 0) || !(Math.Abs(latitude) > 0))
                 throw new Exception("Não é possivel buscar coordenadas com o valor 0");
 
+            if (latitude > 90 || latitude < -90 && longitude > 90 || longitude < -90)
+                throw new Exception("A latitude e longitude deve estar entre 90 e -90");
+
+
             var coord = new GeoCoordinate(longitude, latitude);
 
             try
@@ -38,7 +42,7 @@ namespace AMcom.Teste.Service.Services
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw new Exception($"Não foi possível efetuar a consulta, erro: {ex.Message}");
             }
         }
 

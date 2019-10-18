@@ -1,5 +1,6 @@
 ﻿using AMcom.Teste.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace AMcom.Teste.WebApi.Controllers
 {
@@ -14,6 +15,16 @@ namespace AMcom.Teste.WebApi.Controllers
         }
 
         [HttpGet("/proximas/{latitude}/{longitude}")]
-        public IActionResult ListaUbs(double latitude, double longitude) => Ok(_ubsService.BucarUbsProximas(latitude, longitude));
-    }
+        public IActionResult ListaUbs(double latitude, double longitude)
+        {
+            try
+            {
+                return Ok(_ubsService.BucarUbsProximas(latitude, longitude));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+    }             
 }

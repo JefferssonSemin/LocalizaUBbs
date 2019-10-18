@@ -2,6 +2,7 @@
 using AMcom.Teste.DAL.Entities;
 using CsvHelper;
 using CsvHelper.Configuration;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,21 +12,32 @@ namespace AMcom.Teste.DAL.Repository
 {
     public class UbsRepository : IUbsRepository
     {
-        private const string Caminho = @"C:\ubs.csv";
-
+        private const string Caminho = @"C:\usbs.csv";
+        
         /// <summary>
         /// Responsável pela leitura do csv e carregamento dos dados ao list.
         /// </summary>
         /// <returns></returns>
         public List<Ubs> CarregarDados()
         {
-            using (var reader = new StreamReader(Caminho, Encoding.UTF8))
-            using (var csv = new CsvReader(reader))
+            try
             {
-                csv.Configuration.PrepareHeaderForMatch = (header, index) => header.ToLower();
-                csv.Configuration.Delimiter = ",";
-                csv.Configuration.RegisterClassMap<UbsMapping>();
-                return csv.GetRecords<Ubs>().ToList();
+                using (var reader = new StreamReader(Caminho, Encoding.UTF8))
+                using (var csv = new CsvReader(reader))
+                {
+                    csv.Configuration.PrepareHeaderForMatch = (header, index) => header.ToLower();
+                    csv.Configuration.Delimiter = ",";
+                    csv.Configuration.RegisterClassMap<UbsMapping>();
+                    return csv.GetRecords<Ubs>().ToList();
+                }
+            }
+            catch (FileNotFoundException ex)
+            {
+                throw new FileNotFoundException($"Arquivo dados.csv não existe na pasta ${Caminho}, \n erro: {ex.Message}" );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Não foi possivel ler o arquivo por: \n { ex.Message }");
             }
         }
 
